@@ -21,3 +21,6 @@ Route::get('/', function () {
 
 Route::get('/masters',[MasterController::class, 'masters_index']);
 Route::post('/masters',[MasterController::class, 'masters_index']);
+
+Route::get('/rooms',[RoomController::class, 'rooms_index']);
+Route::post('/rooms',[RoomController::class, 'rooms_index']);
