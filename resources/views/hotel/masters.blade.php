@@ -2,7 +2,7 @@
 @section('contents')
 
 
-  <table>
+  <table class="table table-bordered">
     <tr>
         <th>ID</th>
         <th>部屋タイプ</th>

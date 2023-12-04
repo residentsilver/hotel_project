@@ -97,7 +97,7 @@
         }
 
         footer {
-            position: absolute;
+           /* position: absolute;*/
             bottom: 0;
             width: 100%;
             background: #fff;
