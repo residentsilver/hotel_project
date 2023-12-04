@@ -18,7 +18,7 @@ class MastersTableSeeder extends Seeder
             'master_id' =>1,
             'room_name' =>'洋室',
             'imitation' =>2,
-            'room_image' =>'public/images/youshitsu.png',
+            'room_image' =>'images/youshitsu.png',
         ];
         DB::table('masters')->insert($param);
 
@@ -26,7 +26,7 @@ class MastersTableSeeder extends Seeder
             'master_id' =>2,
             'room_name' =>'和室',
             'imitation' =>4,
-            'room_image' =>'public/images/wasitsu.png',
+            'room_image' =>'images/wasitsu.png',
         ];
         DB::table('masters')->insert($param);
 
@@ -34,7 +34,7 @@ class MastersTableSeeder extends Seeder
             'master_id' =>3,
             'room_name' =>'VIP',
             'imitation' =>8,
-            'room_image' =>'public/images/vip.jpeg',
+            'room_image' =>'images/vip.jpeg',
         ];
         DB::table('masters')->insert($param);
 }

@@ -154,7 +154,7 @@
                     <!-- ドロップダウンタイプここまで -->
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">部屋管理</a>
+                        <a class="nav-link" href="/masters">部屋管理</a>
                     </li>
 
                     <li class="nav-item">
