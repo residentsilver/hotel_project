@@ -12,5 +12,5 @@ class RoomController extends Controller
         $items = Room::all(); 
         return view('hotel.rooms',['items' => $items]);//indexファイルへitems変数を送る。
     }
-    
+
 }

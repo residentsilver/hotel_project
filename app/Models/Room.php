@@ -11,6 +11,6 @@ class Room extends Model
     protected $primaryKey = 'room_id';
     
     public function masters(){
-        return $this->belongsTo('App\master','master_id','master_id');
+        return $this->belongsTo('App\Models\Master','master_id','master_id');
     }
 }
