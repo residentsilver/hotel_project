@@ -158,7 +158,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">部屋種別</a>
+                        <a class="nav-link" href="/rooms">部屋種別</a>
                     </li>
 
                 </ul>

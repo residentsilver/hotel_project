@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\MasterController;
+use App\Http\Controllers\RoomController;
 
 /*
 |--------------------------------------------------------------------------
