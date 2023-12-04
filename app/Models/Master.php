@@ -12,7 +12,7 @@ class Master extends Model
 
     public function rooms()
     {
-        return $this->hasMany('App\room','master_id','master_id');
+        return $this->hasMany('App\Models\Room','master_id','master_id');
     }
 
 }
