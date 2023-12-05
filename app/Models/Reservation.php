@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Reservation extends Model
 {
@@ -23,9 +24,9 @@ class Reservation extends Model
         return $this->belongsTo(Guest::class,'guest_id','guest_id');
     }
 
-    public function room()
+    public function room():BelongsToMany
     {
-        return $this->belongsToMany('App\Room', 'reservation_room', 'reservation_id', 'room_id')->withPivot('day', 'price');
+        return $this->belongsToMany(Room::class, 'reservation_room', 'reservation_id', 'room_id')->withPivot('day', 'price');
     }
 
     //public static function getRoomPrice($n)
