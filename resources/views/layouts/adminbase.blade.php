@@ -103,6 +103,8 @@
         footer {
             position: absolute;
             bottom: -40px;
+           /* position: absolute;*/
+            bottom: 0;
             width: 100%;
             background: #fff;
             margin: 0 auto;
@@ -152,6 +154,7 @@
                             予約管理
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/reservation/index">予約一覧</a>
                             <a class="dropdown-item" href="#">予約明細</a>
                         </div>
                     </li>

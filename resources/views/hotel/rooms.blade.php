@@ -1,7 +1,7 @@
 @extends('layouts.adminbase')
 @section('contents')
 {{-- DBの内容を表示--}}
-  <table>
+  <table class="table table-bordered">
     <tr>
         <th>ID</th>
         <th>部屋タイプ</th>
@@ -15,5 +15,5 @@
         </tr>
     @endforeach
 </table>
-<table>
+
 @endsection
