@@ -33,3 +33,5 @@ Route::post('/rooms',[RoomController::class, 'rooms_index']);
 
 Route::get('/reservation/index',[ReservationController::class, 'index']);
 Route::post('/reservation/index',[ReservationController::class, 'index']);
+Route::get('/reservation/add',[ReservationController::class, 'add']);
+Route::post('/reservation/add',[ReservationController::class, 'create']);
