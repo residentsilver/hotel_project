@@ -20,7 +20,7 @@ class Reservation extends Model
 
     public function guest()
     {
-        return $this->belongsTo('App\Guest');
+        return $this->belongsTo(Guest::class,'guest_id','guest_id');
     }
 
     public function room()
