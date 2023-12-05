@@ -12,6 +12,7 @@
             <th>部屋番号</th>
             <th>チェックイン</th>
             <th>チェックアウト</th>
+            <th>価格</th>
         </thead>
         <tbody>
             @foreach($items as $item)
@@ -21,10 +22,11 @@
         <td>{{$item->guest->name}}</td>
         <td>{{$item->guest->tel}}</td>
         <td>{{$item->people}}</td>
-        <td></td>
-        <td></td>
+        <td>{{$item->room->first()->room_num}}</td>
+        <td>{{$item->room->first()->master_id}}</td>
         <td>{{$item->checkin}}</td>
         <td>{{$item->checkout}}</td>
+        <td>{{$item->room->first()->pivot->price}}</td>
     </tr>
     @endforeach
         </tbody>
