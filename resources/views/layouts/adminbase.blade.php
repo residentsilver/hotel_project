@@ -83,6 +83,8 @@
             margin: 0 auto;
             /*中央揃え*/
             width: 100%;
+            position: relative;
+            min-height: 100vh;
         }
 
         header {
@@ -94,11 +96,13 @@
             margin: 0 auto;
             /*中央揃え*/
             width: 80%;
+            padding-bottom: 70px;
+            /*footer上の余白調整*/
         }
 
         footer {
             position: absolute;
-            bottom: 0;
+            bottom: -40px;
             width: 100%;
             background: #fff;
             margin: 0 auto;
