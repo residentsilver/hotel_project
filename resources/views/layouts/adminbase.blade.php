@@ -148,6 +148,7 @@
                             予約管理
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/reservation/index">予約一覧</a>
                             <a class="dropdown-item" href="#">予約明細</a>
                         </div>
                     </li>

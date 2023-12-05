@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\MasterController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,6 @@ Route::post('/masters',[MasterController::class, 'masters_index']);
 
 Route::get('/rooms',[RoomController::class, 'rooms_index']);
 Route::post('/rooms',[RoomController::class, 'rooms_index']);
+
+Route::get('/reservation/index',[ReservationController::class, 'index']);
+Route::post('/reservation/index',[ReservationController::class, 'index']);
