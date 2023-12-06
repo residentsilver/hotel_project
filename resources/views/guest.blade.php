@@ -1,18 +1,54 @@
 @extends('layouts.adminbase')
 
 @section('contents')
+    <p>{{ $msg }}</p>
+    @if (count($errors) > 0)
+        <p>入力に問題があります。再入力してください。</p>
+    @endif
+
     <form action="/guest/add" method="POST" class="form-group addform">
-        @csrf
-        <label for="name">お名前</label>
-        <input type="text" name="name" placeholder="お名前" class="form-control" required autofocus>
-        <br>
-        <label for="address">ご住所</label>
-        <input type="text" name="address" placeholder="ご住所" class="form-control" required>
-        <br>
-        <label for="tel">電話番号</label>
-        <input type="tel" name="tel" placeholder="電話番号" class="form-control" required>
-        <br>
-        <input type="submit" value="登録" class="form-control-sm">
+        <table>
+            @csrf
+
+            {{-- name属性 = name --}}
+            @error('name')
+                <tr>
+                    <th>ERROR</th>
+                    <td>{{ $message }}</td>
+                </tr>
+            @enderror
+
+            <label for="name">お名前</label>
+            <input type="text" name="name" placeholder="お名前" class="form-control" required autofocus>
+            <br>
+
+            {{-- name属性 = address --}}
+            @error('address')
+                <tr>
+                    <th>ERROR</th>
+                    <td>{{ $message }}</td>
+                </tr>
+            @enderror
+            <label for="address">ご住所</label>
+            <input type="text" name="address" placeholder="ご住所" class="form-control" required>
+            <br>
+
+
+            {{-- name属性 = tel --}}
+            @error('tel')
+                <tr>
+                    <th>ERROR</th>
+                    <td>{{ $message }}</td>
+                </tr>
+            @enderror
+            <label for="tel">電話番号</label>
+            <input type="tel" name="tel" placeholder="電話番号" class="form-control" required>
+            <br>
+
+            {{-- 確定ボタン --}}
+            <input type="submit" value="登録" class="form-control-sm">
+
+        </table>
     </form>
 
     <div class="table-wrap">
