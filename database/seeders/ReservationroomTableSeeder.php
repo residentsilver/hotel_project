@@ -17,7 +17,7 @@ class ReservationroomTableSeeder extends Seeder
             'reservation_id' => 1,
             'room_id' => 3,
             'day' => 2,
-            'price' => 10000,
+            'price' => 12000,
         ];
         DB::table('reservationroom')->insert($param);
 
@@ -33,7 +33,7 @@ class ReservationroomTableSeeder extends Seeder
             'reservation_id' => 3,
             'room_id' => 3,
             'day' => 2,
-            'price' => 10000,
+            'price' => 12000,
         ];
         DB::table('reservationroom')->insert($param);
 
@@ -41,7 +41,7 @@ class ReservationroomTableSeeder extends Seeder
             'reservation_id' => 4,
             'room_id' => 3,
             'day' => 2,
-            'price' => 10000,
+            'price' => 12000,
         ];
         DB::table('reservationroom')->insert($param);
     }
