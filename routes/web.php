@@ -18,7 +18,7 @@ use App\Http\Controllers\ReservationController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.toppage');
 });
 
 // Route::get('/guest', 'GuestController@index');
