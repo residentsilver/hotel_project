@@ -5,7 +5,7 @@
         <table>
             @csrf
             {{-- @foreach ($guests as $guest) --}}
-            {{-- コントローラーのfind()で取得したデータは単数形。なので単数形guestだし、foreach回すとバグるのでだめ --}}
+            {{-- コントローラーのfind()で取得したデータは単数形。なので変数名も単数形guest。１つしかデータが入っていない変数をforeachで回すとバグるのでダメ --}}
             <form action="/guest/update" method="post" class="form-group editform">
                 @csrf
                 <label for="name">お名前</label>
@@ -22,8 +22,6 @@
             </form>
             {{-- @endforeach --}}
         </table>
-
-
     </div>
 @endsection
 
