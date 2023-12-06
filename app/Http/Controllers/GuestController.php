@@ -40,12 +40,11 @@ class GuestController extends Controller
     public function update(Request $request)
     {
         // $this->validate($request, Guest::$rules); // バリデーションの実行
-        $guest = Guest::find($request->guest_id); //入力された(ボタンクリックされた)guest_idの値を取得して、変数$guestに代入
+        $guest = Guest::find($request->id); //入力された(ボタンクリックされた)guest_idの値を取得して、変数$guestに代入
+        // dd($guest);
         $guest->fill($request->all())->save(); //変数$guestに、フォームに入力された値を保存する
         return redirect('/guest');
     }
-
-
 
 
     //削除処理
