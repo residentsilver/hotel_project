@@ -28,7 +28,7 @@
 
                     <!--  更新ボタン -->
                     <td>
-                        <form action="/guest/edit?id={{$guest ->guest_id}}" method="get">
+                        <form action="/guest/edit?id={{ $guest->guest_id }}" method="get">
                             {{-- <a href="/guest/edit?id={{$guest ->guest_id}}">更新</a> --}}
                             <input type="hidden" name="id" value="{{ $guest->guest_id }}">
                             <input type="submit" value="更新">
@@ -46,39 +46,6 @@
                             </button>
                         </form>
                     </td>
-
-                </tr>
-            @endforeach
-        </table>
-    </div>
-
-
-    <br>
-    <div class="edit">
-        <table>
-            @csrf
-            <tr>
-                <th>お名前</th>
-                <th>ご住所</th>
-                <th>電話番号</th>
-            </tr>
-
-            @foreach ($guests as $guest)
-                <tr>
-                    <form action="/guest/edit" method="post">
-                        @csrf
-                        {{-- <td class="id">{{ $guest->id }}</td> --}}
-                        <td><input type="text" name="title" value="{{ $guest->name }}"></td>
-
-                        <td><input type="text" name="author" value="{{ $guest->address }}"></td>
-
-                        <td><input type="text" name="price" value="{{ $guest->tel }}"></td>
-
-                        <td>
-                                <input type="hidden" name="id" value="{{ $guest->guest_id }}">
-                                <input type="submit" value="更新">
-                        </td>
-                    </form>
 
                 </tr>
             @endforeach
