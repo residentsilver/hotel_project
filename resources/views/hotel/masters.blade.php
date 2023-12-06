@@ -27,8 +27,8 @@
              </table>
             @endif
           </td>
-          <td>
-            <img src="{{ asset($item->room_image) }}" alt="Image">
+          <td width="45%">
+            <img width="55%"  src="{{ asset($item->room_image) }}" alt="Image">
         </td>
       </tr>
     @endforeach
