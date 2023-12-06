@@ -17,7 +17,7 @@ class ReservationroomTableSeeder extends Seeder
             'reservation_id' => 1,
             'room_id' => 3,
             'day' => 2,
-            'price' => 12000,
+            'price' => 13000,
         ];
         DB::table('reservationroom')->insert($param);
 
