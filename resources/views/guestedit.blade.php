@@ -2,8 +2,15 @@
 
 @section('contents')
     <div class="edit">
+        @if (count($errors) > 0)
+            <p>入力に問題があります。再入力してください。</p>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        @endif
+        <br>
+
         <table>
-            @csrf
             {{-- @foreach ($guests as $guest) --}}
             {{-- コントローラーのfind()で取得したデータは単数形。なので変数名も単数形guest。１つしかデータが入っていない変数をforeachで回すとバグるのでダメ --}}
             <form action="/guest/update" method="post" class="form-group editform">
