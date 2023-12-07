@@ -17,17 +17,22 @@ class GuestController extends Controller
     }
 
     //バリデーション-----------------------------------------
-    public function post(Request $request)
-    {
-        $validate_rule = [
-            'name' => 'required',
-            'address' => 'required',
-            'tel' =>  ['required', 'max:12'], //半角数字＋ハイフン
-        ];
+    // public function post(Request $request)
+    // {
+    //     $validate_rule = [
+    //         'name' => 'required',
+    //         'address' => 'required',
+    //         'tel' =>  ['required', 'max:12'], //半角数字＋ハイフン
+    //     ];
+    //     // dd($request);
 
-        $this->validate($request, $validate_rule);
-        return view('guest');
-    }
+    //     $this->validate($request, $validate_rule);
+
+    //     return view('guest');
+
+    //     // $guests = Guest::all();
+    //     // return view('guest', ['guests' => $guests]);
+    // }
 
 
     //追加登録-----------------------------------------
@@ -38,6 +43,16 @@ class GuestController extends Controller
 
     public function create(Request $request)
     {
+        // バリデーション処理
+        $validate_rule = [
+            'name' => 'required',
+            'address' => 'required',
+            'tel' =>  ['required', 'regex:/^[0-9-]+$/'],//半角英数とハイフンのみ許可
+        ];
+
+        $this->validate($request, $validate_rule);
+
+        // 追加登録
         $guest = new guest();
         $guest->fill($request->all())->save();
         return redirect('guest'); //guestページにリダイレクトする
@@ -56,6 +71,16 @@ class GuestController extends Controller
 
     public function update(Request $request)
     {
+        // バリデーション処理
+        $validate_rule = [
+            'name' => 'required',
+            'address' => 'required',
+            'tel' =>  ['required', 'regex:/^[0-9-]+$/'],//半角英数とハイフンのみ許可
+        ];
+
+        $this->validate($request, $validate_rule);
+
+        // 更新機能
         $guest = Guest::find($request->id); //入力された(ボタンクリックされた)guest_idの値を取得して、変数$guestに代入
         // dd($guest);
         $guest->fill($request->all())->save(); //変数$guestに、フォームに入力された値を保存する
