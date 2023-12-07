@@ -1,46 +1,29 @@
 @extends('layouts.adminbase')
 
 @section('contents')
-    <p>{{ $msg }}</p>
-    @if (count($errors) > 0)
-        <p>入力に問題があります。再入力してください。</p>
-    @endif
-
     <form action="/guest/add" method="POST" class="form-group addform">
+        @if (count($errors) > 0)
+            <p>入力に問題があります。再入力してください。</p>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        @endif
+        <br>
+
         <table>
             @csrf
-
             {{-- name属性 = name --}}
-            @error('name')
-                <tr>
-                    <th>ERROR</th>
-                    <td>{{ $message }}</td>
-                </tr>
-            @enderror
-
             <label for="name">お名前</label>
             <input type="text" name="name" placeholder="お名前" class="form-control" required autofocus>
             <br>
 
             {{-- name属性 = address --}}
-            @error('address')
-                <tr>
-                    <th>ERROR</th>
-                    <td>{{ $message }}</td>
-                </tr>
-            @enderror
             <label for="address">ご住所</label>
             <input type="text" name="address" placeholder="ご住所" class="form-control" required>
             <br>
 
 
             {{-- name属性 = tel --}}
-            @error('tel')
-                <tr>
-                    <th>ERROR</th>
-                    <td>{{ $message }}</td>
-                </tr>
-            @enderror
             <label for="tel">電話番号</label>
             <input type="tel" name="tel" placeholder="電話番号" class="form-control" required>
             <br>
