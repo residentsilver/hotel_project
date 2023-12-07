@@ -6,6 +6,9 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\MasterController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminRegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,3 +58,30 @@ Route::post('/masters',[MasterController::class, 'masters_index']);
 require __DIR__.'/auth.php';
 Route::get('/guest', [GuestController::class, 'index']); //利用者の一覧表示。コントローラーのindexメソッド呼び出し・実行
 Route::post('/guest', [GuestController::class, 'post']); //バリデーション処理(コントローラーのpostメソッド呼び出し・実行)
+
+
+/*
+|--------------------------------------------------------------------------
+| 利用者用ルーティング
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'admin'], function () {
+    // 登録
+    Route::get('register', [AdminRegisterController::class, 'create'])
+        ->name('admin.register');
+
+    Route::post('register', [AdminRegisterController::class, 'store']);
+
+    // ログイン
+    Route::get('login', [AdminLoginController::class, 'showLoginPage'])
+        ->name('admin.login');
+
+    Route::post('login', [AdminLoginController::class, 'login']);
+
+    // 以下の中は認証必須のエンドポイントとなる
+    Route::middleware(['auth:admin'])->group(function () {
+        // ダッシュボード
+        Route::get('dashboard', fn() => view('admin.dashboard'))
+            ->name('admin.dashboard');
+    });
+});
