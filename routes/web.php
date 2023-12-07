@@ -24,8 +24,6 @@ Route::get('/', function () {
 // Route::get('/guest', 'GuestController@index');
 
 Route::get('/guest', [GuestController::class, 'index']); //利用者の一覧表示。コントローラーのindexメソッド呼び出し・実行
-Route::post('/guest', [GuestController::class, 'post']); //バリデーション処理(コントローラーのpostメソッド呼び出し・実行)
-
 
 Route::get('/guest/add', [GuestController::class, 'add']); //追加機能
 Route::post('/guest/add', [GuestController::class, 'create']); //追加機能
@@ -33,6 +31,7 @@ Route::post('/guest/add', [GuestController::class, 'post']); //バリデーシ�
 
 Route::get('/guest/edit', [GuestController::class, 'edit']);//更新ページに遷移した後の表示
 Route::post('/guest/update', [GuestController::class, 'update']);//更新
+Route::post('/guest/update', [GuestController::class, 'post']); //バリデーション処理(コントローラーのpostメソッド呼び出し・実行)
 
 Route::delete('/guest/{guest}', [GuestController::class, 'delete']);//削除
 

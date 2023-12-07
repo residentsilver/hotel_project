@@ -12,8 +12,8 @@ class GuestController extends Controller
     public function index()
     {
         $guests = Guest::all(); //guestsテーブル(複数形)に登録されているデータ項目を、モデルGuest.php(単数形)を通じて、全て取得。
-
-        return view('guest', ['guests' => $guests, 'msg' => 'フォームを入力：']); //①guest.blade.phpを呼び出す、⓶bladeの変数guestsに、$guestsの中身(Guest::all();)を渡す
+        // dd($guests); //変数guestの中身確認
+        return view('guest', ['guests' => $guests]); //①guest.blade.phpを呼び出す、⓶bladeの変数guestsに、$guestsの中身(Guest::all();)を渡す
     }
 
     //バリデーション-----------------------------------------
@@ -22,11 +22,11 @@ class GuestController extends Controller
         $validate_rule = [
             'name' => 'required',
             'address' => 'required',
-            'tel' => ['required', 'max:255', 'regex:/^[0-9-]+$/'] //半角数字＋ハイフン
+            'tel' =>  ['required', 'max:12'], //半角数字＋ハイフン
         ];
 
         $this->validate($request, $validate_rule);
-        return view('guest', ['msg' => '正しく入力されました！']);
+        return view('guest');
     }
 
 
