@@ -1,6 +1,12 @@
 @extends('layouts.adminbase')
 @section('contents')
-
+@auth
+    {{-- ログインしている場合の表示 --}}
+    <p>Welcome, {{ auth()->user()->name }}!</p>
+@else
+    {{-- ログインしていない場合の表示 --}}
+    <p>Please log in to access this page.</p>
+@endauth
 
   <table class="table table-bordered">
     <tr>
