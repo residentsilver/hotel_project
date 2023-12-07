@@ -140,7 +140,7 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Top</a>
+                        <a class="nav-link" href="/top">Top</a>
                     </li>
 
                     <li class="nav-item">
