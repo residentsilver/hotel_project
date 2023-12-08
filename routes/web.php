@@ -55,7 +55,7 @@ Route::delete('/guest/{guest}', [GuestController::class, 'delete']);//削除
 Route::get('/masters',[MasterController::class, 'masters_index'])->middleware(['auth']);
 Route::post('/masters',[MasterController::class, 'masters_index']);
 
-require __DIR__.'/auth.php';
+
 Route::get('/guest', [GuestController::class, 'index']); //利用者の一覧表示。コントローラーのindexメソッド呼び出し・実行
 Route::post('/guest', [GuestController::class, 'post']); //バリデーション処理(コントローラーのpostメソッド呼び出し・実行)
 
@@ -85,3 +85,5 @@ Route::group(['prefix' => 'admin'], function () {
             ->name('admin.dashboard');
     });
 });
+
+require __DIR__.'/auth.php';

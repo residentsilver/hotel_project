@@ -11,9 +11,9 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h1 class="text-white">Adminのダッシュボード</h1>
-                    {{ __("You're logged in!") }}
+                    {{ __("ログインに成功しました!") }}
 
-                    <div>{{ Auth::user()->name }}</div>
+                    <div>ようこそ、{{ Auth::user()->name }}さん</div>
 
                 </div>
             </div>
