@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- リセットCSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
-    <!-- BootStrap読み込み -->
+    <!-- BootStrap読み込み app.cssはresourceフォルダ内（コンパイル前なので）-->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -17,498 +17,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
-    <!-- BootStrap -->
+    <!-- BootStrapここまで -->
+
+    <!--自作CSS publicフォルダ内（コンパイル不要なので） ※BootStrap読み込みより下に記述することで、優先度高-->
+    <link rel="stylesheet" href="{{ asset('/css/topstyle.css') }}">
+
     <title>Crystal Resort</title>
-    <style>
-        /* bootstrapのデフォルトCSS変更 */
-        .navbar {
-            /* ナビ背景色 */
-            background: rgba(13, 11, 35, 0.9) !important;
-            padding: 1.5rem 1.5rem 1.5rem 2.5rem;
-        }
-
-        /* スマホメニュー文字中央揃え */
-        .navbar-collapse {
-            text-align: center;
-        }
-
-        /* ナビ間の外側余白 */
-        .navbar-expand-lg .navbar-nav .nav-item {
-            margin: 0 10px;
-        }
-
-        /* aタグ関係 */
-        .navbar-expand-lg .navbar-nav .nav-link {
-            /* ナビ間の内側余白 */
-            padding-right: 1rem;
-            padding-left: 1rem;
-            color: rgba(255, 255, 255, 0.9);
-            /* ナビ文字色 */
-            font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
-        }
-
-        /* ナビホバー時*/
-        .navbar-expand-lg .navbar-nav .nav-link:hover {
-            color: #ffffff;
-            transition: all 0.5s;
-        }
-
-        /* 管理者ボタンだけ色変更 */
-        .navbar-expand-lg .navbar-nav .adminbtn {
-            background: #B49859;
-        }
-
-        /* 中央から下線 アニメーション */
-        .navbar-expand-lg .navbar-nav .nav-link {
-            position: relative;
-            text-align: center;
-            display: inline-block;
-        }
-
-        .navbar-expand-lg .navbar-nav .nav-link::before {
-            content: "";
-            position: absolute;
-            left: 100%;
-            right: 100%;
-            bottom: 0;
-            height: 1px;
-            /* background-color: #30a9de; */
-            background-color: #fff;
-            -webkit-transition: left 0.3s ease, right 0.3s ease;
-            -moz-transition: left 0.3s ease, right 0.3s ease;
-            -o-transition: left 0.3s ease, right 0.3s ease;
-            transition: left 0.3s ease, right 0.3s ease;
-        }
-
-        .navbar-expand-lg .navbar-nav .nav-link:hover::before {
-            left: 0;
-            right: 0;
-        }
-
-
-        /* 全体共通 ------------------------------------------ */
-        body {
-            color: #333333;
-            background-color: #d0d1de;
-            /*#fff9e4*/
-            /* font-size: 100%; */
-            font-size: 18px;
-            line-height: 1.7;
-            margin: 0 auto;
-            /*中央揃え*/
-            width: 100%;
-            /* font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif; */
-            font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
-            min-height: 200vw;
-            position: relative;
-        }
-
-        /* .contents{
-            margin-top: 70px;
-        } */
-
-        /* メイン画像 静止画の場合 */
-        .top {
-            background-image: url(http://127.0.0.1:8001/images/2.jpg);
-            background-size: 100%;
-            background-repeat: no-repeat;
-            background-position: center top 14%;
-            height: 44vw;
-            width: 100%;
-            margin-bottom: 70px;
-        }
-
-        .top:before {
-            content: '';
-            width: 100%;
-            height: 100%;
-            display: block;
-            background: center top /100%;
-            background-color: rgba(13, 11, 36, 0.2);
-        }
-
-        /* スライダー */
-        #carousel-2:before {
-            content: '';
-            width: 100%;
-            height: 100%;
-            display: block;
-            background: center top /100%;
-            background-color: rgba(13, 11, 36, 0.2);
-            position: absolute;
-            z-index: 2;
-        }
-
-        .carousel-item {
-            transition: transform 2s ease, opacity .5s ease-out;
-        }
-
-
-        /* スライダー上の文字 */
-        .slider-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -ms-transform: translate(-50%, -50%);
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            z-index: 150;
-            color: #fff;
-            line-height: 2.5;
-        }
-
-        .slider-text h2 {
-            margin: 0;
-            padding: 0;
-            /* font-size: 2rem; */
-            font-size: 2.5vw;
-            color: #fff;
-            text-align: center;
-            /* 游明朝体 */
-            font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
-            line-height: 1.6;
-        }
-
-        .slider-text p {
-            margin: 0;
-            padding: 0;
-            font-size: 1vw;
-            text-align: center;
-            font-family: "游明朝体";
-        }
-
-
-        /* スクロールダウン */
-        .scrolldown {
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            bottom: calc(27% - 28px);
-            left: 0;
-            right: 0;
-            margin: auto;
-            z-index: 1000;
-        }
-
-        .chevron {
-            position: absolute;
-            width: 28px;
-            height: 8px;
-            opacity: 0;
-            transform: scale3d(0.5, 0.5, 0.5);
-            animation: move 3s ease-out infinite;
-        }
-
-        .chevron:first-child {
-            animation: move 3s ease-out 1s infinite;
-        }
-
-        .chevron:nth-child(2) {
-            animation: move 3s ease-out 2s infinite;
-        }
-
-        .chevron:before,
-        .chevron:after {
-            content: ' ';
-            position: absolute;
-            top: 0;
-            height: 100%;
-            width: 51%;
-            background: #fff;
-        }
-
-        .chevron:before {
-            left: 0;
-            transform: skew(0deg, 30deg);
-        }
-
-        .chevron:after {
-            right: 0;
-            width: 50%;
-            transform: skew(0deg, -30deg);
-        }
-
-        @keyframes move {
-            25% {
-                opacity: 1;
-
-            }
-
-            33% {
-                opacity: 1;
-                transform: translateY(30px);
-            }
-
-            67% {
-                opacity: 1;
-                transform: translateY(40px);
-            }
-
-            100% {
-                opacity: 0;
-                transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
-            }
-        }
-
-        .text {
-            display: block;
-            margin-top: 75px;
-            margin-left: -30px;
-            font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
-            font-size: 12px;
-            color: #fff;
-            text-transform: uppercase;
-            white-space: nowrap;
-            opacity: .25;
-            animation: pulse 2s linear alternate infinite;
-        }
-
-        .text a {
-            color: #fff;
-        }
-
-        @keyframes pulse {
-            to {
-                opacity: 1;
-            }
-        }
-
-
-        /* コンテンツ ------------------------------*/
-        /* 見出し */
-        .contents h2,
-        .contents h3,
-        .contents h4 {
-            background-color: #0d0b24;
-            color: #fff;
-            text-align: center;
-            font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
-            padding: 10px;
-            margin-bottom: 30px;
-        }
-
-        /* .contents h3 {
-            font-size: 30px;
-        } */
-
-        /* フッター */
-        footer {
-            color: #fff;
-            background-color: #0d0b24;
-            position: absolute;
-            bottom: -420px;
-            width: 100%;
-            height: 420px;
-            text-align: center;
-            padding: 30px 0 0;
-        }
-
-        .footer p {
-            margin-top: 20px;
-            font-size: 14px;
-        }
-
-        footer .nav-item {
-            width: 20%;
-            min-width: 150px;
-            margin: 0 auto;
-        }
-
-        footer .nav-item a {
-            color: #fff;
-        }
-
-        footer .nav-item a:hover {
-            opacity: 0.7;
-        }
-
-        footer address {
-            font-size: 12px;
-        }
-
-
-        /* 予約ぼかし */
-        .blurBg {
-            background: url(/images/hotel1.jpg) no-repeat center;
-            background-size: cover;
-            position: relative;
-            z-index: 0;
-            overflow: hidden;
-            text-align: center;
-            padding-top: 70px;
-            min-height: 280px;
-            height: 18vw;
-        }
-
-        .blurBg:before {
-            content: '';
-            background: inherit;
-            -webkit-filter: blur(5px);
-            -moz-filter: blur(5px);
-            -o-filter: blur(5px);
-            -ms-filter: blur(5px);
-            filter: blur(5px);
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            z-index: -1;
-        }
-
-        .blurBg:after {
-            content: '';
-            background: rgba(0, 0, 0, 0.6);
-            position: absolute;
-            top: 0px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            z-index: -1;
-        }
-
-        .blurBg h3 {
-            text-align: center;
-            margin: 0 auto;
-            max-width: 270px;
-            height: 60px;
-            border-bottom: solid 2px #fff;
-            background: none !important;
-        }
-
-        .blurBg .btn {
-            margin-top: 50px;
-        }
-
-        /* ボタン共通 */
-        .btn {
-            color: #fff;
-            background: #b49859;
-            max-height: 70px;
-            max-width: 200px;
-        }
-
-        /* 画像共通 */
-        section img {
-            width: 100%;
-        }
-
-        /* フェードイン--------------- */
-        /* .fadeIn {
-            transition: 1s;
-            opacity: 0;
-        }
-
-        .fadeIn.animated {
-            opacity: 1;
-        } */
-        .fadeIn {
-            transform: translate3d(0, 50px, 0);
-            transition: 1s;
-            opacity: 0;
-        }
-
-        .fadeIn.animated {
-            transform: translate3d(0, 0, 0);
-            opacity: 1;
-        }
-
-        /* グリッド -----------------*/
-        .grid {
-            /* スマホのとき */
-            display: grid;
-            grid-template-areas:
-                "head"
-                "txt"
-                "img";
-            grid-template-columns: 1fr;
-            grid-template-rows: auto 1fr;
-            grid-gap: 1em 32px;
-            margin-top: 5vw;
-        }
-
-        .head {
-            grid-area: head;
-        }
-
-        .img {
-            grid-area: img;
-        }
-
-        .grid img {
-            width: 100%;
-        }
-
-        .txt {
-            grid-area: txt;
-        }
-
-
-        /* section 余白調整 */
-        section {
-            padding: 100px 0;
-        }
-
-        section:nth-of-type(odd) {
-            background-color: #fff;
-        }
-
-        /* section内の記事位置調整 */
-        section .container .row div.section_padding {
-            display: grid;
-            place-content: center;
-            place-items: center;
-            /* padding: 90px; */
-        }
-
-        /* section内の記事見出し */
-        section .container .row div.section_padding h4 {
-            background: none;
-            color: #333;
-            border-bottom: solid 3px #b49859;
-        }
-
-
-        /* PC表示 */
-        @media screen and (min-width: 991px) {
-            .navbar-collapse {
-                padding-right: 130px;
-            }
-
-            /* 記事内余白 */
-            section .container .row div.section_padding {
-                padding: 70px;
-            }
-
-            .restaurant .row {
-                flex-direction: row-reverse;
-            }
-        }
-
-        /* タブレットサイズ */
-        @media screen and (max-width:991px) {
-            .top {
-                background-position: center top 14%;
-                height: 60vw;
-            }
-        }
-
-        /* スマホサイズ */
-        @media screen and (max-width:768px) {
-            .navbar {
-                padding: 0.5rem 0.5rem 0.5rem 1.5rem;
-            }
-
-            .scrolldown {
-                display: none;
-            }
-
-        }
-    </style>
 </head>
 
 <body>
-
     <header>
         <!-- ナビ -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -604,7 +121,7 @@
 
 
     <div class="contents">
-        @yield('body') <!-- 子bladeを挿入する部分 -->
+        {{-- @yield('body') <!-- 子bladeを挿入する部分 --> --}}
 
         <section class="blurBg" id="reserve">
             <h3>ご予約はこちら</h3>
@@ -652,11 +169,11 @@
         </section>
 
 
-        <section class="top1" id="room">
+        <section id="room">
             <div class="container">
                 <h3>Room</h3>
                 {{-- <img class="d-block w-100" src="/images/1.jpg"> --}}
-                <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+                <p class="intro">Crystal Resortは、贅沢な時間を過ごすための究極の選択肢です。<br>当リゾートの部屋は、優雅さと快適さが調和した誇り高いデザインが特徴です。
                 </p>
                 {{-- <a class="btn" href="/" role="button">詳しくはこちら &raquo;</a> --}}
             </div>
@@ -668,13 +185,16 @@
                     <div class="col-md-6">
                         <h3>部屋1</h3>
                         <img class="d-block w-100" src="/images/room1.jpg">
-                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+                        <br>
+                        <p>洗練されたインテリアデザインが、落ち着いた雰囲気を醸し出し、快適な滞在をサポートします。<br>各アメニティはお客様のリラックスを最優先に考え、贅沢なバスローブやハイエンドなバスアメニティが備え付けられています。
                         </p>
                     </div>
                     <div class="col-md-6">
                         <h3>部屋2</h3>
                         <img class="d-block w-100" src="/images/room2.jpg">
-                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+                        <br>
+                        <p>穏やかな緑の色調が落ち着きと豊かさをもたらし、自然の息吹を感じながら上質なくつろぎに浸れます。<br>
+                            カスタムデザインのベッドは、繊細な緑色のリネンで彩られ、最高級のマットレスが心地よい眠りを提供します。
                         </p>
                     </div>
                 </div>
@@ -685,6 +205,17 @@
         <section class="top1" id="access">
             <div class="container">
                 <h3>Access</h3>
+                <p>【住所】〒000-0000 大阪府大阪市北区クリスタル通り123番地
+
+                <p>【アクセス】<br>
+                    最寄り駅: 大阪駅 徒歩3分<br>
+                </p>
+
+                <p>【徒歩でのアクセス方法】<br>
+                    ・大阪駅から出発：大阪駅中央改札を出て、北口方向に進みます。<br>
+                    ・クリスタル通りを進む：大阪駅北口を出て直進し、クリスタル通りに差し掛かります。<br>
+                    ・3分で到着：クリスタル通りを進むと、Crystal Resortが見えてきます。美しい外観と緑溢れるエントランスが、お客様を温かく迎えます。</p>
+                <p>大阪の賑やかな街の中で、Crystal Resortは静かなくつろぎの場。お客様が快適な滞在をお楽しみいただけるよう、心をこめてお待ちしております。</p>
             </div>
 
             <br>
@@ -701,23 +232,23 @@
     <footer>
         <div class="container footer">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Top</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/top">Top</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Reserve</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/top#reserve">Reserve</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Concept</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/top#concept">Concept</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Restaurant</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/top#restaurant">Restaurant</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Room</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/top#room">Room</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Access</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/top#access">Access</a>
                 </li>
             </ul>
             <p>〒000-0000 大阪府大阪市000-00<br>
