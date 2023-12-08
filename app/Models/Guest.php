@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Guest extends Model
 {
@@ -13,5 +14,8 @@ class Guest extends Model
     protected $primaryKey = 'guest_id';
 
     protected $fillable = ['name', 'address', 'tel'];
-    
+
+    //ソフトデリートの追加
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
 }
