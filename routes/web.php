@@ -52,9 +52,14 @@ Route::post('/guest/update', [GuestController::class, 'update']);//更新
 
 Route::delete('/guest/{guest}', [GuestController::class, 'delete']);//削除
 
-Route::get('/masters',[MasterController::class, 'masters_index'])->middleware(['auth']);
+Route::get('/masters',[MasterController::class, 'masters_index'])->middleware(['auth']); //
 Route::post('/masters',[MasterController::class, 'masters_index']);
 
+Route::get('/rooms',[RoomController::class, 'rooms_index']);
+Route::post('/rooms',[RoomController::class, 'rooms_index']);
+
+Route::get('/reservation/index',[ReservationController::class, 'index']);
+Route::post('/reservation/index',[ReservationController::class, 'index']);
 
 Route::get('/guest', [GuestController::class, 'index']); //利用者の一覧表示。コントローラーのindexメソッド呼び出し・実行
 Route::post('/guest', [GuestController::class, 'post']); //バリデーション処理(コントローラーのpostメソッド呼び出し・実行)
