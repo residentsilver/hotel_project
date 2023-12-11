@@ -10,14 +10,12 @@
         <table class="table">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">部屋番号</th>
-                <th scope="col">宿泊料（お1人様あたり）</th></tr>
+                <th scope="col">部屋番号</th></tr>
         </thead>
         <tbody>
         @foreach($items as $item)
         <tr>
-            <td>{{$item->number}}</td>
-            <td>{{$item->price}}</td>
+            <td>{{$item->room_num}}</td>
         </tr>
         @endforeach
         </tbody>
