@@ -1,5 +1,6 @@
 <x-guest-layout>
     <h1 class="text-white">Adminの登録</h1>
+    <p style="color: red; margin-bottom:10px;">利用者用</p>
     <form method="POST" action="{{ route('admin.register') }}">
         @csrf
 

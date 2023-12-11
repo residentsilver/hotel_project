@@ -1,9 +1,15 @@
 <x-app-layout>
 
+    <!-- CSSの読み込み -->
+    {{-- <x-slot name="head">
+        <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    </x-slot> --}}
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             Adminのダッシュボード
         </h2>
+        <p style="color: red; margin-bottom:10px;">利用者用</p>
     </x-slot>
 
     <div class="py-12">
@@ -14,7 +20,6 @@
                     {{ __("ログインに成功しました!") }}
 
                     <div>ようこそ、{{ Auth::user()->name }}さん</div>
-
                 </div>
             </div>
         </div>
