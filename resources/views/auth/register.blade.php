@@ -1,5 +1,6 @@
 <x-guest-layout>
     <p style="color: blue; margin-bottom:10px;">管理者用</p>
+    
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
