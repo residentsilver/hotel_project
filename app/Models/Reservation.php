@@ -9,8 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Reservation extends Model
 {
     use HasFactory;
-
-    protected $guarded = array('id');
+    protected $primaryKey = 'reservation_id';
 
     public static $rules = array(
         'guest_id' => 'required',
@@ -26,7 +25,7 @@ class Reservation extends Model
 
     public function room():BelongsToMany
     {
-        return $this->belongsToMany(Room::class, 'reservation_room', 'reservation_id', 'room_id')->withPivot('day', 'price');
+        return $this->belongsToMany(Room::class, 'reservationroom', 'reservation_id', 'room_id')->withPivot('day', 'price');
     }
 
     //public static function getRoomPrice($n)
