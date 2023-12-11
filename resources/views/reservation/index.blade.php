@@ -22,8 +22,8 @@
         <td>{{$item->guest->name}}</td>
         <td>{{$item->guest->tel}}</td>
         <td>{{$item->people}}</td>
-        <td>{{$item->room->first()->room_num}}</td>
         <td>{{$item->room->first()->master_id}}</td>
+        <td>{{$item->room->first()->room_num}}</td>
         <td>{{$item->checkin}}</td>
         <td>{{$item->checkout}}</td>
         <td>{{$item->room->first()->pivot->price}}</td>

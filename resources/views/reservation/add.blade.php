@@ -6,9 +6,9 @@
 @endif
 
         @if(isset($items))
-        <div class="content_sub_title">検索結果</div>
+        <h3>検索結果</h3>
         <table class="table">
-        <thead class="thead-dark">
+        <thead class="table-dark">
             <tr>
                 <th scope="col">部屋番号</th></tr>
         </thead>
@@ -22,7 +22,7 @@
         </table>
         @endif
 
-<div class="content_title">予約</div>
+<h3>予約</h3>
 @if(count($errors)>0)
 <div>
     <ul>
@@ -38,7 +38,7 @@
     
     <input class="form-control form-control-lg" type="number" placeholder="お客様ID" name="guest_id" value="{{old('guest_id')}}"><br>
     <input class="form-control form-control-lg" type="number" placeholder="ご利用人数" name="people" value="{{old('people')}}"><br>
-    <div class="content_sub_title">ご希望の部屋番号を指定</div>
+    <p class="lead">ご希望の部屋番号を指定</p>
     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="room_id">
         <option selected>ご希望の部屋番号をお選びください</option>
         <option value="1">101</option>
@@ -52,13 +52,12 @@
         <option value="9">みかん</option>
       </select>
     <br>
-    <div class="content_sub_title margintop">チェックイン</div>
+    <p class="lead">チェックイン</p>
     <input class="form-control form-control-lg" type="date" placeholder="チェックイン" name="checkin" value="{{old('checkin')}}"><br>
-    <div class="content_sub_title">チェックアウト</div>
+    <p class="lead">チェックアウト</p>
     <input class="form-control form-control-lg" type="date" placeholder="チェックアウト" name="checkout" value="{{old('checkout')}}"><br>
-    <input class="form-control form-control-lg" type="number" placeholder="宿泊日数" name="day" value="{{old('day')}}"><br>
     <input class="form-control form-control-lg" type="text" placeholder="価格" name="price" value="{{old('price')}}"><br>
-    <input class="submit_btn" type="submit" value="予約">
+    <div class="btn-group"><input class="btn btn-dark" type="submit" value="予約"></div>
 </form>
 </div>
 
