@@ -16,7 +16,9 @@ class ReservationController extends Controller
     public function add(Request $request):View{
         $items = session('items');
         $msg = session('msg');
-        return view('reservation.add',['items' => $items,'msg'=>$msg]);
+        $checkin = session('checkin');
+        $checkout = session('checkout');
+        return view('reservation.add',['items' => $items,'msg'=>$msg,'checkin'=>$checkin,'checkout'=>$checkout,]);
     }
 
     public function create(Request $request){

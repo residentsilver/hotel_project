@@ -27,7 +27,7 @@ class RoomController extends Controller
         $items = Room::matchCategory($category)->availableDate($checkin,$checkout)->get();
 
         if($items->count()>=$threshold){
-            return redirect('/reservation/add')->with('items',$items);
+            return redirect('/reservation/add')->with(['items'=>$items,'checkin'=>$checkin,'checkout'=>$checkout,]);
         }else{
             return view('room.find',['msg'=>'検索条件に該当するお部屋はございません']);
         }
