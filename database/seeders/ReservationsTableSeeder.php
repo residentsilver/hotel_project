@@ -30,7 +30,7 @@ class ReservationsTableSeeder extends Seeder
         DB::table('reservations')->insert($param);
 
         $param = [
-            'guest_id' => 3,
+            'guest_id' => 1,
             'people' => '4',
             'checkin' => '2023-11-15',
             'checkout' => '2023-11-16',
@@ -38,7 +38,7 @@ class ReservationsTableSeeder extends Seeder
         DB::table('reservations')->insert($param);
 
         $param = [
-            'guest_id' => 4,
+            'guest_id' => 2,
             'people' => '2',
             'checkin' => '2023-11-20',
             'checkout' => '2023-11-21',

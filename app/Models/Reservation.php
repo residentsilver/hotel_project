@@ -10,6 +10,7 @@ class Reservation extends Model
 {
     use HasFactory;
     protected $primaryKey = 'reservation_id';
+    protected $fillable = ['guest_id','people','checkin','checkout'];
 
     public static $rules = array(
         'guest_id' => 'required',
