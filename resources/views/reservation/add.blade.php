@@ -58,6 +58,7 @@
     <input class="form-control form-control-lg" type="date" placeholder="チェックイン" name="checkin" value="{{old('checkin')}}"><br>
     <div class="content_sub_title">チェックアウト</div>
     <input class="form-control form-control-lg" type="date" placeholder="チェックアウト" name="checkout" value="{{old('checkout')}}"><br>
+    <input class="form-control form-control-lg" type="number" placeholder="宿泊日数" name="day" value="{{old('day')}}"><br>
     <input class="form-control form-control-lg" type="text" placeholder="価格" name="price" value="{{old('price')}}"><br>
     <input class="submit_btn" type="submit" value="予約">
 </form>

@@ -23,7 +23,7 @@ class ReservationController extends Controller
         $this->validate($request,Reservation::$rules);
 
         
-        $checkin_date = $request->checkin;
+        $day = $request->day;
         
         $reservation = new Reservation;
         $form = $request->all();
@@ -33,7 +33,7 @@ class ReservationController extends Controller
         $room_id = $request->room_id;
         $price= $request->price;
         //$total_price = $people * $room_price;
-        $reservation->room()->attach($room_id,['day' => $checkin_date, 'price'=> $price]);
+        $reservation->room()->attach($room_id,['day' => $day, 'price'=> $price]);
         return view('reservation.add',['msg'=>'予約が完了しました']);
 
     }
