@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Carbon\Carbon;
 
 class Reservation extends Model
 {
@@ -31,8 +32,16 @@ class Reservation extends Model
 
     //public static function getRoomPrice($n)
     //{
-        //$data = Reservation::with('room')->find($n);
-       // return $data->room->pluck('price')->first();
+        //$data = Room::find($n);
+       // return $data->price;
     //}
+
+    public static function getUseDays($n1, $n2){
+
+        $checkIn = new Carbon($n1);
+        $checkOut = new Carbon($n2);
+
+        return  $checkIn->diffInDays($checkOut);
+    }
 }
 
