@@ -49,6 +49,9 @@ Route::post('/masters',[MasterController::class, 'masters_index']);
 Route::get('/rooms',[RoomController::class, 'rooms_index']);//rooms表示
 Route::post('/rooms',[RoomController::class, 'rooms_index']);
 
+Route::get('/room/find',[RoomController::class, 'find']);
+Route::post('/room/find',[RoomController::class, 'search']);
+
 Route::get('/reservation/index',[ReservationController::class, 'index']);
 Route::post('/reservation/index',[ReservationController::class, 'index']);
 Route::get('/reservation/add',[ReservationController::class, 'add']);
