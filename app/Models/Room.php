@@ -20,6 +20,11 @@ class Room extends Model
         return $this->belongsToMany(Reservation::class,'reservationroom','room_id','reservation_id')->withPivot('day','price');
     }
 
+    public static function getMasterName($n)
+    {
+        $data = Master::where('master_id','=',$n)->first();
+        return $data->room_name;
+    }
 
     public function scopeMatchCategory($query, $n)
     {
