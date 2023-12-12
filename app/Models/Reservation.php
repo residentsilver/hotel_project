@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Reservation extends Model
 {
@@ -19,6 +20,10 @@ class Reservation extends Model
         'checkin' => 'required',
         'checkout' => 'required'
     );
+
+    //ソフトデリートの追加
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
 
     public function guest()
     {
