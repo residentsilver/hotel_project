@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Guest; //Laravel10から階層変わってる
+use App\Models\Reservation;
 
 class GuestController extends Controller
 {
@@ -93,5 +94,17 @@ class GuestController extends Controller
     {
         $guest->delete();
         return redirect('/guest');
+    }
+
+    //削除の確認ページを表示
+    public function get(Request $request) {
+        return view('guests_restore');
+    }
+
+    //削除した利用者の復元
+    public function restore(Request $request) {
+        Guest::withTrashed()->restore();
+        Reservation::withTrashed()->restore();
+        return redirect('guest');
     }
 }

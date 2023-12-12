@@ -43,6 +43,10 @@ Route::post('/guest/update', [GuestController::class, 'update']);//更新
 
 Route::delete('/guest/{guest}', [GuestController::class, 'delete']);//削除
 
+Route::get('/guest/restore', [GuestController::class, 'get']);//削除
+Route::post('/guest/restore', [GuestController::class, 'restore']);//削除
+
+
 Route::get('/masters',[MasterController::class, 'masters_index'])->middleware(['auth']); //mastersログイン時表示
 Route::post('/masters',[MasterController::class, 'masters_index']);
 

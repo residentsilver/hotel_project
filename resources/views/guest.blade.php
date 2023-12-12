@@ -70,6 +70,8 @@
             @endforeach
         </table>
     </div>
+    <hr>
+<a href="/guest/restore">削除した利用者を復元する</a>
 @endsection
 
 <style>
