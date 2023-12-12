@@ -9,25 +9,32 @@
 <div class="card">
     <h5 class="card-header">検索結果</h5>
     <div class="card-body">
-      <table class="table">
-        <thead class="table-dark">
+            <h6 class="card-title">【検索条件】</h6>
+            <ul>
+                <li>部屋タイプ：{{$master_name}}</li>
+                <li>チェックイン：{{$checkin}}</li>
+                <li>チェックアウト：{{$checkout}}</li>
+            </ul>
+        
+        <table class="table">
+          <thead class="table-dark">
             <tr>
-                <th scope="col">部屋番号</th><th scope="col">宿泊料金（お1人様・1泊あたり）</th></tr>
-        </thead>
-        <tbody>
-        @foreach($items as $item)
-        <tr>
-            <td>{{$item->room_num}}</td>
-            <td>{{$item->room_price}}</td>
-        </tr>
-        @endforeach
-        </tbody>
-        </table>
+                <th scope="col">部屋番号</th><th scope="col">宿泊料金<small>（お1人様・1泊あたり）</small></th></tr>
+          </thead>
+          <tbody>
+            @foreach($items as $item)
+            <tr>
+                <td>{{$item->room_num}}</td>
+                <td>{{$item->room_price}}</td>
+            </tr>
+            @endforeach
+          </tbody>
+         </table>
     </div>
 </div>
  @endif
 
-<h3 style="margin-top: 50px;">予約</h3>
+<h3 style="margin-top: 50px;">宿泊予約</h3>
 @if(count($errors)>0)
 <div>
     <ul>

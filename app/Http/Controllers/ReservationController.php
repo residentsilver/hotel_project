@@ -18,14 +18,12 @@ class ReservationController extends Controller
         $msg = session('msg');
         $checkin = session('checkin');
         $checkout = session('checkout');
-        return view('reservation.add',['items' => $items,'msg'=>$msg,'checkin'=>$checkin,'checkout'=>$checkout,]);
+        $master_name = session('master_name');
+        return view('reservation.add',['items' => $items,'msg'=>$msg,'checkin'=>$checkin,'checkout'=>$checkout,'master_name'=>$master_name,]);
     }
 
     public function create(Request $request){
         $this->validate($request,Reservation::$rules);
-
-        
-        //$day = $request->day;
         
         $reservation = new Reservation;
         $form = $request->all();
