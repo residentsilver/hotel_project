@@ -5,24 +5,29 @@
 <div class="alert alert-primary" role="alert">{{$msg}}</div>
 @endif
 
-        @if(isset($items))
-        <h3>検索結果</h3>
-        <table class="table">
+@if(isset($items))
+<div class="card">
+    <h5 class="card-header">検索結果</h5>
+    <div class="card-body">
+      <table class="table">
         <thead class="table-dark">
             <tr>
-                <th scope="col">部屋番号</th></tr>
+                <th scope="col">部屋番号</th><th scope="col">宿泊料金（お1人様・1泊あたり）</th></tr>
         </thead>
         <tbody>
         @foreach($items as $item)
         <tr>
             <td>{{$item->room_num}}</td>
+            <td>{{$item->room_price}}</td>
         </tr>
         @endforeach
         </tbody>
         </table>
-        @endif
+    </div>
+</div>
+ @endif
 
-<h3>予約</h3>
+<h3 style="margin-top: 50px;">予約</h3>
 @if(count($errors)>0)
 <div>
     <ul>
@@ -32,6 +37,7 @@
     </ul>
 </div>
 @endif
+
 <div class="content_area">
     <form action="/reservation/add" method="post">
     @csrf
@@ -60,17 +66,16 @@
       </select>
     <br>
     @if(isset($checkin))
-    <p class="lead">チェックイン</p>
+    <p class="lead" style="margin-top: 30px;">チェックイン</p>
     <input class="form-control form-control-lg" type="date" placeholder="チェックイン" name="checkin" value="{{$checkin}}"><br>
     <p class="lead">チェックアウト</p>
     <input class="form-control form-control-lg" type="date" placeholder="チェックアウト" name="checkout" value="{{$checkout}}"><br>
     @else
-    <p class="lead">チェックイン</p>
+    <p class="lead" style="margin-top: 30px;">チェックイン</p>
     <input class="form-control form-control-lg" type="date" placeholder="チェックイン" name="checkin" value="{{old('checkin')}}"><br>
     <p class="lead">チェックアウト</p>
     <input class="form-control form-control-lg" type="date" placeholder="チェックアウト" name="checkout" value="{{old('checkout')}}"><br>
     @endif
-    <input class="form-control form-control-lg" type="text" placeholder="価格" name="price" value="{{old('price')}}"><br>
     <div class="btn-group"><input class="btn btn-dark" type="submit" value="予約"></div>
 </form>
 </div>

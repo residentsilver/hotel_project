@@ -30,11 +30,11 @@ class Reservation extends Model
         return $this->belongsToMany(Room::class, 'reservationroom', 'reservation_id', 'room_id')->withPivot('day', 'price');
     }
 
-    //public static function getRoomPrice($n)
-    //{
-        //$data = Room::find($n);
-       // return $data->price;
-    //}
+    public static function getRoomPrice($n)
+    {
+        $data = Room::find($n);
+        return $data->room_price;
+    }
 
     public static function getUseDays($n1, $n2){
 

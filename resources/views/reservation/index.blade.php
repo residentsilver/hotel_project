@@ -12,7 +12,7 @@
             <th>部屋番号</th>
             <th>チェックイン</th>
             <th>チェックアウト</th>
-            <th>価格</th>
+            <th>料金</th>
         </thead>
         <tbody>
             @foreach($items as $item)

@@ -20,6 +20,7 @@ return new class extends Migration
                 ->onDelete('RESTRICT')
                 ->onUpdate('RESTRICT');
             $table->string('room_num');
+            $table->integer('room_price');
             $table->timestamps();
         });
     }

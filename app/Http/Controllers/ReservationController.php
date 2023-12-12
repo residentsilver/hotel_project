@@ -36,9 +36,10 @@ class ReservationController extends Controller
         $checkIN = $request->checkin;
         $checkOut = $request->checkout;
         $day= Reservation::getUseDays($checkIN,$checkOut);
-        $price= $request->price;
-        //$total_price = $people * $day * $room_price;
-        $reservation->room()->attach($room_id,['day' => $day, 'price'=> $price]);
+        $people= $request->people;
+        $room_price= Reservation::getRoomPrice($room_id);
+        $total_price = $people * $day * $room_price;
+        $reservation->room()->attach($room_id,['day' => $day, 'price'=> $total_price]);
         return view('reservation.add',['msg'=>'予約が完了しました']);
 
     }

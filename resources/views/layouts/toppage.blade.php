@@ -43,7 +43,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#reserve">Reserve</a>
+                        <a class="nav-link" href="/room/find/">Reserve</a>
                     </li>
 
                     <!-- ドロップダウンタイプ -->
@@ -125,7 +125,7 @@
 
         <section class="blurBg" id="reserve">
             <h3>ご予約はこちら</h3>
-            <a class="btn" href="/" role="button">ご予約 &raquo;</a>
+            <a class="btn" href="/room/find/" role="button">ご予約 &raquo;</a>
         </section>
 
         <section id="concept">
@@ -236,7 +236,7 @@
                     <a class="nav-link" href="/top">Top</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/top#reserve">Reserve</a>
+                    <a class="nav-link" href="/room/find/">Reserve</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/top#concept">Concept</a>
