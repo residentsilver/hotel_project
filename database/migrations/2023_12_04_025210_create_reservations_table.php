@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('checkin');
             $table->date('checkout');
             $table->timestamps();
+            $table->softDeletes();//ソフトデリート実装準備
         });
     }
 
@@ -26,6 +27,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('reservations',function(Blueprint $table){
+            $table->dropSoftDeletes();//ソフトデリート実装準備
+        });
     }
 };

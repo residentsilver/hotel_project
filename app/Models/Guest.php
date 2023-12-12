@@ -18,4 +18,15 @@ class Guest extends Model
     //ソフトデリートの追加
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    public function reservations() {
+        return $this->hasMany('App\Models\Reservation','guest_id','guest_id');
+    }
+
+    public static function booted(): void
+    {
+        static::deleted(function ($guest){
+            $guest->reservations()->delete();
+        });
+    }
 }
