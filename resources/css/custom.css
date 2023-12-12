@@ -3,14 +3,11 @@
 @tailwind utilities;
 
 .wrap-bg{
-    /* background-color: rgba(13, 11, 35, 0.9) ; */
-
     /* グラデーションを定義 */
     /* background-image: linear-gradient(180deg, rgb(10 1 100), rgb(85 196 255) 100%); */
-
     background:linear-gradient(135deg, #0a0164,#24569a,#55c4ff);
-    background-size: 200% 200%;/*サイズを大きくひきのばす*/
-    animation: bggradient 5s ease infinite;
+    background-size: 300% 300%;/*サイズを大きくひきのばす*/
+    animation: bggradient 10s ease infinite;
 }
 
 .wrap-logo{
