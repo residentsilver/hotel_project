@@ -15,6 +15,13 @@ class Guest extends Model
 
     protected $fillable = ['name', 'address', 'tel'];
 
+    public static $rules = // バリデーション処理
+    [
+        'name' => 'required',
+        'address' => 'required',
+        'tel' =>  ['required', 'regex:/^[0-9-]+$/'],//半角英数とハイフンのみ許可
+    ];
+
     //ソフトデリートの追加
     use SoftDeletes;
     protected $dates = ['deleted_at'];

@@ -72,14 +72,9 @@ class GuestController extends Controller
 
     public function update(Request $request)
     {
-        // バリデーション処理
-        $validate_rule = [
-            'name' => 'required',
-            'address' => 'required',
-            'tel' =>  ['required', 'regex:/^[0-9-]+$/'],//半角英数とハイフンのみ許可
-        ];
+        
 
-        $this->validate($request, $validate_rule);
+        $this->validate($request, Reservation::$rules);
 
         // 更新機能
         $guest = Guest::find($request->id); //入力された(ボタンクリックされた)guest_idの値を取得して、変数$guestに代入
